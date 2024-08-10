@@ -9,10 +9,17 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode themeMode = ThemeMode.light;
+  ColorSelection colorSelection = ColorSelection.indigo;
+
   @override
   Widget build(BuildContext context) {
     final brightness = View.of(context).platformDispatcher.platformBrightness;
@@ -22,7 +29,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+      themeMode: themeMode,
+      darkTheme: theme.dark(),
+      theme: theme.light(),
       home: Home(
         changeTheme: (useLightMode) {},
         changeColor: (value) {},
