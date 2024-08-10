@@ -13,6 +13,11 @@ class _DetalheReceitaPageState extends State<DetalheReceitaPage> {
   int _medida = 1;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -49,6 +54,7 @@ class _DetalheReceitaPageState extends State<DetalheReceitaPage> {
                     ),
                 itemCount: widget.receitaModel.listaIngrediente.length),
           ),
+          Text("Medidas"),
           Container(
             margin: EdgeInsets.symmetric(vertical: 32),
             child: Slider(
