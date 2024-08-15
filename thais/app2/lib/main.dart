@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
-      home: Home(changeTheme: (useLightMode) {}, changeColor: (value) {}, title: "Teste", colorSelection: ColorSelection.indigo,),
+      home: Home(changeTheme: (useLightMode) {}, changeColor: (value) {}, title: "Projeto Mobile Multiplataforma", colorSelection: ColorSelection.indigo,),
     );
   }
 }

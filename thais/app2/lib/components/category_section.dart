@@ -1,14 +1,4 @@
 import 'package:flutter/widgets.dart';
-
-// class CategorySection extends StatelessWidget {
-//   const CategorySection({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import '../models/food_category.dart';
 
@@ -21,7 +11,6 @@ class CategoriesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Explore Categories',
