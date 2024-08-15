@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     //TextTheme textTheme = Theme.of(context).textTheme;
 
     // Use with Google Fonts package to use downloadable fonts
-    TextTheme textTheme = createTextTheme(context, "Amiko", "Comforter");
+    TextTheme textTheme = createTextTheme(context, "Alegreya Sans", "Alegreya Sans");
 
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp(
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
-      home: Home(changeTheme: (useLightMode) {}, changeColor: (value) {}, title: "Projeto Mobile Multiplataforma", colorSelection: ColorSelection.indigo,),
+      home: Home(changeTheme: (useLightMode) {}, changeColor: (value) {}, title: "Projeto Mobile ", colorSelection: ColorSelection.indigo,),
     );
   }
 }

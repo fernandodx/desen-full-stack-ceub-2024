@@ -14,7 +14,7 @@ class RestaurantSection extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'comida perto de mim',
+          'Comida perto de mim',
           style: Theme.of(context).textTheme.titleLarge,
         ),
         SizedBox(
@@ -48,10 +48,10 @@ class RestaurantSection extends StatelessWidget {
                                 child: IconButton(onPressed: () {  },
                                   icon:  Icon(Icons.favorite),
                                   iconSize: 30,
-                                  color: Colors.redAccent,
+                                  color: Colors.blueGrey,
                                 ),
                             ),
-                            IconButton(onPressed: (){}, icon: Icon(Icons.favorite))
+
                           ],
                         ),
                       ),
