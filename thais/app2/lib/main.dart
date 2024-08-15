@@ -20,6 +20,12 @@ class _MyAppState extends State<MyApp> {
   ThemeMode themeMode = ThemeMode.light;
   ColorSelection colorSelection = ColorSelection.indigo;
   // This widget is the root of your application.
+  void _changeTheme(bool useLightMode) {
+    setState(() {
+      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -36,8 +42,13 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
-      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
-      home: Home(changeTheme: (useLightMode) {}, changeColor: (value) {}, title: "Projeto Mobile ", colorSelection: ColorSelection.indigo,),
+      theme: theme.light(),
+      darkTheme: theme.dark(),
+      home: Home(
+        changeTheme: _changeTheme,
+        changeColor: (value) {},
+        title: "Projeto Mobile ",
+        colorSelection: ColorSelection.indigo,),
     );
   }
 }
