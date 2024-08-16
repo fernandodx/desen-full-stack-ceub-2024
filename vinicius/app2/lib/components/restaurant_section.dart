@@ -11,9 +11,15 @@ class RestaurantSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Comida perto de mim",
-          style: Theme.of(context).textTheme.titleLarge,
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Comida perto de mim",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
         ),
         SizedBox(
           height: 230,
@@ -22,7 +28,6 @@ class RestaurantSection extends StatelessWidget {
               itemCount: restaurants.length,
               itemBuilder: (context, index) {
                 final restaurant = restaurants[index];
-
                 return SizedBox(
                   width: 300,
                   child: Card(

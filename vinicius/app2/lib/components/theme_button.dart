@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ThemeButton extends StatelessWidget {
   final void Function(bool) changeTheme;

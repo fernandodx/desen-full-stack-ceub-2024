@@ -47,12 +47,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final pages = [
       ExplorePage(),
-      // Center(
-      //   child: Text(
-      //     "Home",
-      //     style: Theme.of(context).textTheme.headlineLarge,
-      //   ),
-      // ),
       Center(
         child: Text(
           "Pedidos",
