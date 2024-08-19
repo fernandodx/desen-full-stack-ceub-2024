@@ -10,12 +10,13 @@ class Home extends StatefulWidget {
   final void Function(int value) changeColor;
   final String title;
 
-  Home(
-      {required this.colorSelection,
-      required this.changeTheme,
-      required this.changeColor,
-      required this.title,
-      super.key});
+  Home({
+    required this.colorSelection,
+    required this.changeTheme,
+    required this.changeColor,
+    required this.title,
+    super.key,
+  });
 
   @override
   State<Home> createState() => _HomeState();
@@ -45,7 +46,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      //ExplorerPage
       ExplorePage(),
       Center(
         child: Text(
@@ -67,12 +67,13 @@ class _HomeState extends State<Home> {
         elevation: 4,
         backgroundColor: Theme.of(context).colorScheme.surface,
         actions: [
-          //ColorButton
+          // ColorButton
           ColorButton(
               changeColor: (color) => widget.changeColor.call(color),
               colorSelection: widget.colorSelection),
-          //ThemeButton
-          ThemeButton(changeTheme: widget.changeTheme)
+          // ThemeButton
+          ThemeButton(
+              changeTheme: (useLightMode) => widget.changeTheme.call(useLightMode)),
         ],
       ),
       body: IndexedStack(

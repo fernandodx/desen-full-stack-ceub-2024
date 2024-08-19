@@ -22,10 +22,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final brightness = View.of(context).platformDispatcher.platformBrightness;
     TextTheme textTheme = createTextTheme(context, "Nunito Sans", "Nunito Sans");
-
     MaterialTheme theme = MaterialTheme(textTheme);
+
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -33,11 +32,20 @@ class _MyAppState extends State<MyApp> {
       darkTheme: theme.dark(),
       theme: theme.light(),
       home: Home(
-        changeTheme: (useLightMode) {},
-        changeColor: (value) {},
+        changeTheme: (useLightMode) {
+          setState(() {
+            themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
+          });
+        },
+        changeColor: (value) {
+          setState(() {
+            colorSelection = ColorSelection.values[value];
+          });
+        },
         title: "AppFood",
-        colorSelection: ColorSelection.indigo,
+        colorSelection: colorSelection,
       ),
     );
   }
 }
+

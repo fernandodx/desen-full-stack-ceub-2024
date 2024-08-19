@@ -1,5 +1,6 @@
 import 'package:app2/api/explore_data.dart';
 import 'package:app2/components/category_section.dart';
+import 'package:app2/components/post_section.dart';
 import 'package:flutter/material.dart';
 
 import '../components/restaurant_section.dart';
@@ -36,6 +37,7 @@ class _ExplorePageState extends State<ExplorePage> {
               //RestaurantSection
               RestaurantSection(restaurants: restaurants),
               CategorySection(categories: categories),
+              PostSection(posts: posts),
 
               //CategorySection
 

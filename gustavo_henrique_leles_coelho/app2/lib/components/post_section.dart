@@ -26,51 +26,39 @@ class PostSection extends StatelessWidget {
               return SizedBox(
                 width: 300,
                 child: Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-                        child: AspectRatio(
-                          aspectRatio: 2,
-                          child: Stack(
-                            fit: StackFit.expand,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(50.0),
+                          child: Image.asset(
+                            post.profileImageUrl,
+                            width: 50.0, // Defina o tamanho da imagem
+                            height: 50.0, // Defina o tamanho da imagem
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(width: 10.0), // Espaçamento entre a imagem e o texto
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                child: Image.asset(
-                                  post.profileImageUrl,
-                                  fit: BoxFit.cover,
-                                ),
+                              Text(
+                                post.comment,
+                                style: Theme.of(context).textTheme.titleSmall,
                               ),
-                              Positioned(
-                                  top: 4.0,
-                                  right: 4.0,
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      Icons.favorite,
-                                    ),
-                                    iconSize: 30,
-                                    color: Colors.redAccent,
-                                  ))
+                              SizedBox(height: 5.0), // Espaçamento entre o texto e o timestamp
+                              Text(
+                                "${post.timestamp} mins ago",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
                             ],
                           ),
                         ),
-                      ),
-                      ListTile(
-                        title: Text(
-                          post.comment,
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                        subtitle: Text(
-                          post.timestamp + " mins ago",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        onTap: () {
-                          print("Clicou em ${post.id}");
-                        },
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
