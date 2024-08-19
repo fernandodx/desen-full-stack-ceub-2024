@@ -41,18 +41,7 @@ class CategorySection extends StatelessWidget {
                                   category.imageUrl,
                                   fit: BoxFit.cover,
                                 ),
-                              ),
-                              Positioned(
-                                  top: 4.0,
-                                  right: 4.0,
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      Icons.favorite,
-                                    ),
-                                    iconSize: 30,
-                                    color: Colors.redAccent,
-                                  ))
+                              )
                             ],
                           ),
                         ),
