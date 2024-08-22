@@ -12,10 +12,6 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Categorias",
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
         SizedBox(
           height: 230,
           child: ListView.builder(

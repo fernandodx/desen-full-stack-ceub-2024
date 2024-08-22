@@ -10,10 +10,6 @@ class RestaurantSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Comida perto de mim",
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
         SizedBox(
           height: 230,
           child: ListView.builder(
