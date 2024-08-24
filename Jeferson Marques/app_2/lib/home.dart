@@ -5,7 +5,6 @@ import 'package:app_2/pages/explore_page.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-
   final ColorSelection colorSelection;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
@@ -16,7 +15,7 @@ class Home extends StatefulWidget {
     required this.changeColor,
     required this.title,
     required this.colorSelection,
-    super.key
+    super.key,
   });
 
   @override
@@ -24,10 +23,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int tab = 0;
 
-  List<NavigationDestination> appDestinations = const [
+  final List<NavigationDestination> appDestinations = const [
     NavigationDestination(
       icon: Icon(Icons.home_outlined),
       label: "Home",
@@ -47,11 +45,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     final pages = [
-      //ExplorerPage
-      ExplorePage(),
-
+      const ExplorePage(),
       Center(
         child: Text(
           "Pedidos",
@@ -72,12 +67,11 @@ class _HomeState extends State<Home> {
         elevation: 4,
         backgroundColor: Theme.of(context).colorScheme.surface,
         actions: [
-          //ColorButton
           ColorButton(
-              changeColor: (color) => widget.changeColor.call(color),
-              colorSelection: widget.colorSelection),
-          //ThemeButton
-          ThemeButton(changeTheme: widget.changeTheme)
+            changeColor: (color) => widget.changeColor.call(color),
+            colorSelection: widget.colorSelection,
+          ),
+          ThemeButton(changeTheme: widget.changeTheme),
         ],
       ),
       body: IndexedStack(
@@ -87,7 +81,11 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: NavigationBar(
         destinations: appDestinations,
         selectedIndex: tab,
-        onDestinationSelected: (indexSelected) {},
+        onDestinationSelected: (indexSelected) {
+          setState(() {
+            tab = indexSelected;
+          });
+        },
       ),
     );
   }

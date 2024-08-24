@@ -4,10 +4,10 @@ class FoodCategory {
   String imageUrl;
 
   FoodCategory(
-    this.name,
-    this.numberOfRestaurants,
-    this.imageUrl,
-  );
+      this.name,
+      this.numberOfRestaurants,
+      this.imageUrl,
+      );
 }
 
 List<FoodCategory> categories = [
