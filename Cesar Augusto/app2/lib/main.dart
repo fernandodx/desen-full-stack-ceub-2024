@@ -20,6 +20,12 @@ class _MyAppState extends State<MyApp> {
   ThemeMode themeMode = ThemeMode.light;
   ColorSelection colorSelection = ColorSelection.indigo;
 
+  void _toggleTheme(bool useLightMode) {
+    setState(() {
+      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final brightness = View.of(context).platformDispatcher.platformBrightness;
@@ -33,10 +39,14 @@ class _MyAppState extends State<MyApp> {
       darkTheme: theme.dark(),
       theme: theme.light(),
       home: Home(
-        changeTheme: (useLightMode) {},
-        changeColor: (value) {},
+        changeTheme: _toggleTheme,
+        changeColor: (value) {
+          setState(() {
+            colorSelection = ColorSelection.values[value];
+          });
+        },
         title: "Teste",
-        colorSelection: ColorSelection.indigo,
+        colorSelection: colorSelection,
       ),
     );
   }
