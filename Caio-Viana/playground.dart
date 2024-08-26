@@ -159,3 +159,10 @@ abstract class DispositivoInterface {
 
   String getMarca();
 }
+
+
+extension MinhaString on String{
+  String primeiraMaiuscula(){
+    return "${this.substring(0, 1).toUpperCase()} ${this.substring(1, this.length).toLowerCase()}";
+  }
+}
